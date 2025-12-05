@@ -11,7 +11,7 @@ function PlantPage() {
   }, []);
 
   async function getPlants() {
-   try {
+    try {
       const response = await fetch("http://localhost:6001/plants");
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -25,9 +25,9 @@ function PlantPage() {
 
   return (
     <main>
-      <NewPlantForm setPlants={setPlants}/>
-      <Search />
-      <PlantList plants={plants}/>
+      <NewPlantForm setPlants={setPlants} />
+      <Search plants={plants} setPlants={setPlants} getPlants={getPlants} />
+      <PlantList plants={plants} />
     </main>
   );
 }
